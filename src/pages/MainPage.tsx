@@ -1,14 +1,21 @@
 import Titulo from "../components/Titulo"
 import Navegacion from "../components/Navegacion"
 import Formulario from "../components/Formulario"
-import ListaTODOs from "../components/ListaTODOs"
+import ListaTODOs, { type TODO } from "../components/ListaTODOs"
 
 const MainPage = () => {
+    const listaTODOs : TODO[] = [
+        { id : 1, descripcion : "Ir al cine" },
+        { id : 2, descripcion : "Limpiar mi cuarto" },
+        { id : 3, descripcion : "Preparar el desayuno" },
+        { id : 4, descripcion : "Hacer req. de trabajo de PW" }
+    ]
+
     return <div className="container">
-        <Titulo />
+        <Titulo texto="TODO App" />
         <Navegacion />
         <Formulario />
-        <ListaTODOs />
+        <ListaTODOs todos={ listaTODOs } />
     </div>
 }
 
