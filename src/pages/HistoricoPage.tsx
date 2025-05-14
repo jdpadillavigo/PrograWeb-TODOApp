@@ -8,7 +8,7 @@ const HistoricoPage = () => {
     ]
 
     return <div className="container">
-        <Titulo texto="TODO - Histórico" />
+        <Titulo texto="TODO - Histórico" pagina={Pagina.Historico} />
         <Navegacion pagina={ Pagina.Historico } />
         <ListaTODOs todos={ listaHistorico } esHistorico={ true } ></ListaTODOs>
     </div>
