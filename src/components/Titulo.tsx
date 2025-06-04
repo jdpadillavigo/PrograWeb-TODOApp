@@ -24,6 +24,7 @@ const Titulo = (props : TituloProps) => {
                             className="btn btn-primary mt-2 me-3"
                             type="button"
                             onClick={() => {
+                                sessionStorage.removeItem("TODOS")
                                 navigate("/")
                             }}
                         >
