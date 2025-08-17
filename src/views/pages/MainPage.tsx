@@ -4,7 +4,7 @@ import Navegacion, { Pagina } from "../components/Navegacion"
 import Formulario from "../components/Formulario"
 import ListaTODOs, { type TODO } from "../components/ListaTODOs"
 import { useNavigate } from 'react-router-dom'
-import { URL_BACKEND } from '../config'
+import { URL_BACKEND } from '../../config'
 
 export interface Category {
     id: number

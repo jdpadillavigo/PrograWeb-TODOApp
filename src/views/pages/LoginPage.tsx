@@ -1,37 +1,7 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { URL_BACKEND } from "../config"
+import useLoginViewModel from "../../viewmodels/useLoginViewModel"
 
 const LoginPage = () => {
-    const [username, setUsername] = useState("")
-    const [password, setPassword] = useState("")
-    const [error, setError] = useState("")
-
-    const navigate = useNavigate()
-
-    // Define (do not implement) the function to make the HTTP login request
-    const loginRequest = async (username: string, password: string) => {
-        const resp = await fetch(`${URL_BACKEND}/usuarios/login`, {
-            method : "POST",
-            headers : {
-                "content-type" : "application/json"
-            },
-            body : JSON.stringify({
-                username : username,
-                password : password
-            })
-        })
-
-        const data = await resp.json()
-        if (data.msg == "") {
-            // Login correcto
-            sessionStorage.setItem("USUARIO", JSON.stringify(data.usuario))
-            navigate("/main")
-        } else {
-            // Login incorrecto
-            setError(data.msg)
-        }
-    }
+    const { username, setUsername, password, setPassword, error, loginRequest } = useLoginViewModel()
 
     return (
         <div className="container mt-5">
