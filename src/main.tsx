@@ -9,7 +9,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename='/PrograWeb-TODOApp'>
       <Routes>
         <Route path='/' element={ <LoginPage /> } />
         <Route path='/main' element={ <MainPage /> } />

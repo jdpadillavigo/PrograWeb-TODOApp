@@ -4,8 +4,7 @@ import Navegacion, { Pagina } from "../components/Navegacion"
 import Formulario from "../components/Formulario"
 import ListaTODOs, { type TODO } from "../components/ListaTODOs"
 import { useNavigate } from 'react-router-dom'
-
-const URL = "http://localhost:5000"
+import { URL_BACKEND } from '../config'
 
 export interface Category {
     id: number
@@ -25,7 +24,7 @@ const MainPage = () => {
         }
         const usuario = JSON.parse(sessionStorage.getItem("USUARIO")!)
         try {
-            const resp = await fetch(`${URL}/todos`, {
+            const resp = await fetch(`${URL_BACKEND}/todos`, {
                 headers : {
                     "usuarioid" : usuario.id
                 }
@@ -44,7 +43,7 @@ const MainPage = () => {
         }
         const usuario = JSON.parse(sessionStorage.getItem("USUARIO")!)
         try {
-            const resp = await fetch(`${URL}/categorias`, {
+            const resp = await fetch(`${URL_BACKEND}/categorias`, {
                 headers : {
                     "usuarioid" : usuario.id
                 }
@@ -57,14 +56,14 @@ const MainPage = () => {
     }
 
     const httpGuardarTODO = async (todo : TODO) => {
-        const resp = await fetch(`${URL}/todos`, {
+        const resp = await fetch(`${URL_BACKEND}/todos`, {
             method : "post",
             body : JSON.stringify(todo),
             headers : {
                 "content-type" : "application/json"
             }
         })
-        const data = await resp.json()
+        await resp.json()
     }
 
     useEffect(() => {
