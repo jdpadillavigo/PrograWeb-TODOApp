@@ -35,11 +35,13 @@ const Formulario = (props : FormularioProps) => {
                     value={ selectedCategory }
                     onChange={ categoryOnChange }>
                     <option value="">Seleccionar categoría</option>
-                    {props.categories.map(category => (
-                        <option key={category.id} value={category.id}>
-                            {category.name}
-                        </option>
-                    ))}
+                    {
+                        props.categories.map(category => (
+                            <option key={category.id} value={category.id}>
+                                {category.nombre}
+                            </option>
+                        ))
+                    }
                 </select>
             </div>
             <div className="col-md-3">
